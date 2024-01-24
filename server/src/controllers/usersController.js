@@ -6,7 +6,7 @@ const createUser = async(req, res) => {
         const userExists = await usersModel.getUser({ email });
 
         if (userExists) {
-            res.locals.statusText = { error: "User already exists" };
+            res.locals.statusText = { error: "User already exists", message: "User already exists" };
             return res.status(400).json(res.locals.statusText);
         }
 
